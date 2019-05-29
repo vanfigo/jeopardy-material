@@ -1,0 +1,20 @@
+<button mat-raised-button color="warn" routerLink='/home'>
+  <fa-icon [icon]="faChevronCircleLeft"></fa-icon> Go back
+</button>
+<div class="row my-2">
+  <div class="col" *ngFor="let category of boardService.categories">
+    <div class="card bg-info shadow-sm text-light">
+      <div class="card-body">
+        <h5 class="card-title m-0 text-center">{{category.title}}</h5>
+      </div>
+    </div>
+    <div class="card mt-2" *ngFor="let question of category.questions"
+          (click)="showQuestion(question)">
+      <div class="card bg-primary shadow-sm text-light">
+        <div class="card-body">
+          <h1 class="display-1 m-0 text-center">{{question.value | currency }}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
