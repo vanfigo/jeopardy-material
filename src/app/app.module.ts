@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { PhotoPipe } from './pipes/photo.pipe';
 
 import { environment } from '../environments/environment';
+import { QuestionComponent } from './question/question.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +28,14 @@ import { environment } from '../environments/environment';
     HomeComponent,
     BoardComponent,
     LeaderboardComponent,
-    PhotoPipe
+    PhotoPipe,
+    QuestionComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
@@ -37,6 +43,9 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    QuestionComponent
+  ]
 })
 export class AppModule { }

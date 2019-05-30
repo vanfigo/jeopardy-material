@@ -1,7 +1,25 @@
 <mat-toolbar color='primary'>
-    <span>Jeopardy</span>
-    <span class="toolbar-space"></span>
-    <button mat-raised-button color="accent">
-        <fa-icon [icon]="faUserCircle"></fa-icon> Login
-    </button>
+    <mat-toolbar-row>
+        <span class="mr-3" style="cursor: pointer" routerLink="/home">
+            <fa-icon [icon]="faGamepad"></fa-icon> Jeopardy
+        </span>
+        <button mat-mini-fab routerLink="/admin">
+            <fa-icon [icon]="faCog"></fa-icon>
+        </button>
+        <span class="toolbar-space"></span>
+        <button mat-raised-button color="accent" *ngIf="!fireAuth.user"
+                (click)="login()">
+            <fa-icon [icon]="faGoogle"></fa-icon> Login
+        </button>
+        <button mat-raised-button color="warn" *ngIf="fireAuth.user"
+                (click)="logout()">
+            <fa-icon [icon]="faDoorOpen"></fa-icon> Logout
+        </button>
+    </mat-toolbar-row>
+    <mat-toolbar-row *ngIf="fireAuth.user">
+        <img src="{{ fireAuth.user.photoUrl | photo }}" style="height: 32px;"
+            alt="{{fireAuth.displayName}}"
+            class="align-middle img-fluid rounded-pill mr-2">
+        <small class="align-middle"> {{fireAuth.user.displayName}} </small>
+    </mat-toolbar-row>
 </mat-toolbar>

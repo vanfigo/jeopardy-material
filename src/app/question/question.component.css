@@ -1,0 +1,7 @@
+.mat-list-base {
+    padding-top: 0;
+}
+
+::ng-deep .mat-bottom-sheet-container{
+    padding: 0;
+}

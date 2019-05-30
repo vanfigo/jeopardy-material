@@ -1,0 +1,13 @@
+<div class="card border-0">
+  <div class="card-body bg-dark text-light">
+    <h5 class="card-title m-0"> {{question.question}} </h5>
+  </div>
+  <mat-action-list>
+      <button mat-list-item *ngFor="let answer of answers"
+              (click)="answerSelected(answer)"
+              [ngClass]="{'text-light': answer.answered, 'bg-danger': isIncorrect(answer), 'bg-success': isCorrect(answer)}"
+              [disabled]=isAnswered>
+        {{answer.description}}
+      </button>
+  </mat-action-list>
+</div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen, faGamepad, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FireAuthService } from '../providers/fire-auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +11,18 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent implements OnInit {
 
-  faUserCircle = faUserCircle;
+  faGoogle = faGoogle;
+  faDoorOpen = faDoorOpen;
+  faGamepad = faGamepad;
+  faCog = faCog;
 
-  constructor() { }
+  constructor(private fireAuth: FireAuthService) { }
 
   ngOnInit() {
   }
+
+  login = () => this.fireAuth.googleLogin();
+
+  logout = () => this.fireAuth.logout();
 
 }

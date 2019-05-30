@@ -2,19 +2,19 @@
   <fa-icon [icon]="faChevronCircleLeft"></fa-icon> Go back
 </button>
 <div class="row my-2">
-  <div class="col" *ngFor="let category of boardService.categories">
-    <div class="card bg-info shadow-sm text-light">
-      <div class="card-body">
-        <h5 class="card-title m-0 text-center">{{category.title}}</h5>
-      </div>
-    </div>
-    <div class="card mt-2" *ngFor="let question of category.questions"
-          (click)="showQuestion(question)">
-      <div class="card bg-primary shadow-sm text-light">
-        <div class="card-body">
-          <h1 class="display-1 m-0 text-center">{{question.value | currency }}</h1>
-        </div>
-      </div>
-    </div>
+  <div class="col-12 col-lg-3" *ngFor="let category of boardService.categories">
+    <mat-card class="mb-2 bg-primary text-light">
+      <mat-card-header>
+        <mat-card-title class="m-0">{{category.title}}</mat-card-title>
+      </mat-card-header>
+    </mat-card>
+    <mat-card class="mb-2 text-light" style="cursor: pointer"
+              *ngFor="let question of category.questions"
+              [ngClass]="{'bg-dark': !question.answered, 'bg-secondary': question.answered}"
+          (click)="!question.answered && showQuestion(category, question)">
+        <mat-card-content>
+          <h1 class="display-5 m-0 text-center">{{question.value | currency:'USD':'symbol':'1.0' }}</h1>
+        </mat-card-content>
+    </mat-card>
   </div>
 </div>
