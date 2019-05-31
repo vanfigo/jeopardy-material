@@ -1,3 +1,46 @@
-<p>
-  admin works!
-</p>
+<div class="d-flex">
+  <mat-form-field class="flex-fill">
+    <input matInput placeholder="Category" name="title" #title [(ngModel)]="category.title">
+  </mat-form-field>
+  <button mat-mini-fab color="primary" class="mx-3" (click)="addCategory()">
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
+</div>
+<div class="row">
+  <ul class="list-group col p-0 m-1">
+    <button type="button" *ngFor="let category of categories"
+            class="list-group-item list-group-item-action"
+            #button
+            (click)="showQuestions(category, button)">
+      {{ category.title }}
+    </button>
+  </ul>
+</div>
+<div class="row mt-3" *ngIf="categorySelected">
+  <div class="col">
+    <button mat-raised-button color="primary" (click)="addQuestion()">
+      <fa-icon [icon]="faPlus"></fa-icon> Add a question
+    </button>
+  </div>  
+</div>
+<div class="row mt-3">
+  <div class="col">
+    <app-question-add (cancel)="addingQuestion = false" (save)="savedQuestion($event)"
+                      [category]="categorySelected"
+                      *ngIf="addingQuestion"></app-question-add>
+  </div>
+</div>
+<div class="row m-3">
+  <div class="card-columns">
+    <div class="card" *ngFor="let question of questions">
+      <div class="card-body bg-dark text-light">
+        <h5 class="card-title m-0"> {{question.description}} </h5>
+      </div>
+      <ul class="list-group">
+          <li class="list-group-item" *ngFor="let answer of question.answers">
+            {{answer.description}}
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>

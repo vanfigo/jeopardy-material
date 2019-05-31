@@ -8,6 +8,11 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   imports: [
@@ -17,7 +22,12 @@ import { MatCardModule } from '@angular/material/card';
     MatBottomSheetModule,
     MatListModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatIconModule,
+    MatSlideToggleModule
   ],
   declarations: [],
   exports: [
@@ -27,7 +37,12 @@ import { MatCardModule } from '@angular/material/card';
     MatBottomSheetModule,
     MatListModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatStepperModule,
+    MatIconModule,
+    MatSlideToggleModule
   ]
 })
 export class MaterialModule { }

@@ -22,7 +22,6 @@ export class FireAuthService {
   createUser = (user: FireBaseUser) => {
     this.user = new User(user.displayName ? user.displayName : user.email);
     this.user.photoUrl = user.photoURL;
-    console.log(this.user);
   }
 
   googleLogin = (): void => {

@@ -20,6 +20,8 @@ import { PhotoPipe } from './pipes/photo.pipe';
 import { environment } from '../environments/environment';
 import { QuestionComponent } from './question/question.component';
 import { AdminComponent } from './admin/admin.component';
+import { FormsModule } from '@angular/forms';
+import { AddComponent } from './question/add/add.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { AdminComponent } from './admin/admin.component';
     LeaderboardComponent,
     PhotoPipe,
     QuestionComponent,
-    AdminComponent
+    AdminComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { AdminComponent } from './admin/admin.component';
     FontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

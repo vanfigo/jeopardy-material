@@ -1,0 +1,50 @@
+<mat-vertical-stepper>
+  <mat-step [completed]="false">
+    <ng-template matStepLabel>Question</ng-template>
+    <p>Add your question.</p>
+    <mat-form-field class="col">
+      <input matInput placeholder="Question" required
+            name="description" #description [(ngModel)]="question.description">
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="warn" (click)="cancelQuestion()">Cancel</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [completed]="false">
+    <ng-template matStepLabel>Value</ng-template>
+    <p>Put the value for this question.</p>
+    <mat-form-field class="col">
+      <input type="number" matInput placeholder="Value" required
+            name="value" #value [(ngModel)]="question.value">
+    </mat-form-field>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step [completed]="false">
+    <ng-template matStepLabel>Answers</ng-template>
+    <p>You should add up to 3 answers.</p>
+    <div class="d-flex">
+      <mat-form-field class="flex-fill">
+        <input matInput placeholder="Answer" name="ansDescr" #ansDescr [(ngModel)]="answer.description">
+      </mat-form-field>
+      <button mat-mini-fab color="primary" class="mx-3" (click)="addAnswer()">
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </button>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between" *ngFor="let answer of question.answers">
+        <span> {{answer.description}} </span>
+        <mat-slide-toggle name="correct" #correct [(ngModel)]="answer.correct">
+          Correct
+        </mat-slide-toggle>
+      </li>
+    </ul>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="saveQuestion()">Save</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
