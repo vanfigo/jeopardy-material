@@ -22,6 +22,8 @@ import { QuestionComponent } from './question/question.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { AddComponent } from './question/add/add.component';
+import { ScorebarComponent } from './scorebar/scorebar.component';
+import { DialogNameComponent } from './dialog-name/dialog-name.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AddComponent } from './question/add/add.component';
     PhotoPipe,
     QuestionComponent,
     AdminComponent,
-    AddComponent
+    AddComponent,
+    ScorebarComponent,
+    DialogNameComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { AddComponent } from './question/add/add.component';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents: [
-    QuestionComponent
+    QuestionComponent,
+    DialogNameComponent
   ]
 })
 export class AppModule { }

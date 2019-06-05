@@ -20,7 +20,7 @@ export class BoardComponent implements OnInit {
 
   faChevronCircleLeft = faChevronCircleLeft;
 
-  constructor(private boardService: BoardService,
+  constructor(public boardService: BoardService,
               private questionService: QuestionService,
               private bottomSheet: MatBottomSheet,
               private snackBar: MatSnackBar) {
@@ -43,14 +43,18 @@ export class BoardComponent implements OnInit {
         ref.afterDismissed().subscribe(() => {
           question.answered = true;
           let answer = this.questionService.answerSelected;
-          if(answer.correct)
+          if(answer.correct) {
+            this.boardService.score += question.value;
             this.snackBar.open(`Awesome, you've got $${question.value}`, 'Yeah!', {
               duration: 5000
             });
-          else
+          }
+          else{
+            this.boardService.score -= question.value;
             this.snackBar.open(`Sadly, you've lost -$${question.value}`, 'Ups :(', {
               duration: 5000
             });
+          }
         });
       });
   }

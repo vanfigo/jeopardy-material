@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   faGamepad = faGamepad;
   faCog = faCog;
 
-  constructor(private fireAuth: FireAuthService) { }
+  constructor(public fireAuth: FireAuthService) { }
 
   ngOnInit() {
   }

@@ -36,7 +36,7 @@ export class QuestionComponent implements OnInit {
     this.questionService.questionSelected = this.question;
     this.questionService.answerSelected = answer;
     this.isAnswered = answer.answered = true;
-    setTimeout(()=>this.bottomSheetRef.dismiss(), 1000)
+    setTimeout(()=>this.bottomSheetRef.dismiss(), 400)
   }
 
 }

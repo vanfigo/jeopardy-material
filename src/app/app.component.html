@@ -2,3 +2,4 @@
 <div class="container my-2">
     <router-outlet></router-outlet>
 </div>
+<app-scorebar *ngIf="boardService.isPlaying"></app-scorebar>

@@ -1,7 +1,7 @@
 <button mat-raised-button color="warn" routerLink='/home'>
   <fa-icon [icon]="faChevronCircleLeft"></fa-icon> Go back
 </button>
-<div class="row my-2">
+<div class="row mt-2 board-container">
   <div class="col-12 col-lg-3" *ngFor="let category of boardService.categories">
     <mat-card class="mb-2 bg-primary text-light">
       <mat-card-header>
@@ -11,8 +11,9 @@
     <mat-card class="mb-2 text-light" style="cursor: pointer"
               *ngFor="let question of category.questions"
               [ngClass]="{'bg-dark': !question.answered, 'bg-secondary': question.answered}"
-          (click)="!question.answered && showQuestion(category, question)">
-        <mat-card-content>
+              (click)="!question.answered && showQuestion(category, question)"
+              matRipple>
+        <mat-card-content class="mb-0">
           <h1 class="display-5 m-0 text-center">{{question.value | currency:'USD':'symbol':'1.0' }}</h1>
         </mat-card-content>
     </mat-card>

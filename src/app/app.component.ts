@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BoardService } from './providers/board.service';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   title = 'jeopardy';
+
+  constructor(public boardService: BoardService) {
+  }
+
 }

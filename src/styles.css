@@ -4,3 +4,7 @@
 body {
     margin: 0;
 }
+
+.mat-snack-bar-container {
+    margin-bottom: 70px !important;
+}

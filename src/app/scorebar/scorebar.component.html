@@ -1,0 +1,6 @@
+<mat-toolbar color='primary' class="fixed-bottom">
+      <button mat-raised-button color="accent" (click)="endGame()">
+      	<fa-icon [icon]="faMedal"></fa-icon> Finalize</button>
+      <span class="toolbar-space"></span>
+      <span><small>Score:</small> {{ boardService.score | currency:'USD':'symbol':'1.0' }}</span>
+</mat-toolbar>

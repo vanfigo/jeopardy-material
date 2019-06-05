@@ -13,9 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   imports: [
+    MatChipsModule,
+    MatRippleModule,
     CommonModule,
     MatToolbarModule,
     MatTableModule,
@@ -27,10 +32,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatInputModule,
     MatStepperModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
   ],
   declarations: [],
   exports: [
+    MatChipsModule,
+    MatRippleModule,
     MatToolbarModule,
     MatButtonModule,
     MatTableModule,
@@ -42,7 +50,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatInputModule,
     MatStepperModule,
     MatIconModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatDialogModule
   ]
 })
 export class MaterialModule { }

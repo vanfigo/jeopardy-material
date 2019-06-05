@@ -1,4 +1,4 @@
-<table class="table table-dark table-bordered shadow my-2">
+<table class="table table-dark table-bordered shadow my-2" *ngIf="leaderboard">
   <thead>
     <tr class="text-center">
       <th>User</th>
@@ -9,10 +9,16 @@
   <tbody>
     <tr *ngFor="let user of leaderboard">
       <td>
-        <img src="{{ user.photoUrl | photo: 32 }}" alt="">
+        <img src="{{ user.photoUrl | photo: 32 }}" style="height: 32px;"
+              class="align-middle img-fluid rounded-pill mr-2">
         {{ user.displayName }}
       </td>
-      <td>{{ user.categories }}</td>
+      <td>
+        <mat-chip-list>
+          <mat-chip *ngFor="let category of user.categories"
+                    color="accent" selected> {{category}} </mat-chip>
+        </mat-chip-list>
+      </td>
       <td>{{ user.score }}</td>
     </tr>
   </tbody>
